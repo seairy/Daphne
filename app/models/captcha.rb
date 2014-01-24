@@ -2,10 +2,6 @@ class Captcha < ActiveRecord::Base
   OPERATION_SIGNIN = 'signin'
   belongs_to :user
 
-  def is_valid_for? user
-    true if self.user_id == user.id and self.available?
-  end
-
   def expire!
     self.update_attribute :available, false
   end

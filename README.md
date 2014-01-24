@@ -14,7 +14,7 @@ Daphne
 
 任何请求返回的内容为json格式，从类型角度来说，分为SuccessResult和FailureResulte，范例如下：
 * { result: 'success', data: (业务逻辑返回的数据，Hash 或 Array) }
-* { result: 'failure', code: 100, message: '错误信息' }
+* { result: 'failure', code: 10000, message: '错误信息' }
 
 ### 三、正常流程
 
