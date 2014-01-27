@@ -1,6 +1,6 @@
 class SessionsApi < BaseApi
 
-  get '/captcha' do
+  post '/captcha' do
     unless BaseHelper.is_phone? params[:phone]
       json Result::Failure.create(20101)
     else
@@ -8,7 +8,7 @@ class SessionsApi < BaseApi
     end
   end
   
-  get '/signin' do
+  post '/signin' do
     if not BaseHelper.is_phone? params[:phone]
       json Result::Failure.create(20101)
     elsif not BaseHelper.is_captcha? params[:captcha]
@@ -30,6 +30,7 @@ class SessionsApi < BaseApi
             json Result::Failure.create(20105)
           else
             captcha.expire!
+            user.approve!
             json Result::Success.create(Token.generate_for(user).content)
           end
         end

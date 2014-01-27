@@ -19,4 +19,14 @@ module BaseHelper extend self
       true
     end
   end
+
+  def is_token? token
+    if token.blank?
+      false
+    elsif not token =~ /^[A-Za-z0-9]{32}$/
+      false
+    else
+      true
+    end
+  end
 end

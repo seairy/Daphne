@@ -9,6 +9,7 @@ module Result
     ERROR_MESSAGES = {
       ## common errors   ##
       10001 => 'URL not found.',
+      10002 => 'Access forbidden, incorrect token or expired.',
       ## service errors  ##
       # sessions #
       20101 => 'Invalid phone number.',
@@ -17,7 +18,7 @@ module Result
       20104 => 'Incorrect captcha code.',
       20105 => 'Expired captcha code.',
       # users #
-      20201 => ''
+      20201 => 'Invalid user.'
     }
 
     def create code

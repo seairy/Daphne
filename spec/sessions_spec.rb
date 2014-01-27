@@ -8,9 +8,9 @@ describe "Sessions" do
   end
 
   it "should be signin" do
-    post '/captcha', phone: '13800138000'
-    captcha = JSON.parse(last_response.body)['content']
-    post '/signin', phone: '13800138000', captcha: captcha
-    JSON.parse(last_response.body)['content'].length.should eq(32)
+    post '/captcha', phone: PHONE_NUMBER
+    captcha = JSON.parse(last_response.body)['data']
+    post '/signin', phone: PHONE_NUMBER, captcha: captcha
+    JSON.parse(last_response.body)['data'].length.should eq(32)
   end
 end

@@ -8,3 +8,6 @@ Dir[model_dir, helper_dir].each { |file| require file }
 
 module RSpecMixin include Rack::Test::Methods end
 RSpec.configure { |c| c.include RSpecMixin }
+
+PHONE_NUMBER = '13800138000'
+MAIL_ADDRESS = 'your@domain.com'

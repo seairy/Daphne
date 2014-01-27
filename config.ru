@@ -16,5 +16,6 @@ Dir[api_dir, model_dir, helper_dir, config_dir, lib_dir].each { |file| require f
 run Rack::URLMap.new({
   "/s" => SessionsApi,
   "/u" => UsersApi,
-  "/tests" => TestsApi
+  "/tests" => TestsApi,
+  "/" => BaseApi
 })
